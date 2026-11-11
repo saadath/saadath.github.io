@@ -1,25 +1,1627 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-  <title>دکتر هوشنگ سعادت</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f8fc">
+<meta name="description" content="دکتر هوشنگ سعادت؛ متخصص بیماری‌های داخلی، هوش مصنوعی پزشکی و توسعه نرم‌افزار.">
+<title>دکتر هوشنگ سعادت | Medicine & Technology</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f5f8fc;
+  --surface:#ffffff;
+  --surface2:#edf3f8;
+  --text:#172b40;
+  --muted:#64788c;
+  --line:#e1e9f0;
+  --accent:#087f8c;
+  --accent2:#16b5aa;
+  --accent3:#3974c6;
+  --soft:#e3f5f3;
+  --nav:rgba(255,255,255,.86);
+  --shadow:0 15px 45px rgba(24,49,75,.07);
+  --shadow-hover:0 24px 55px rgba(8,127,140,.14);
+  --radius:24px;
+  color-scheme:light;
+}
+
+[data-theme="dark"]{
+  --bg:#091521;
+  --surface:#111f2e;
+  --surface2:#192b3d;
+  --text:#eff6fc;
+  --muted:#a1b3c4;
+  --line:#263b4e;
+  --accent:#5bd1c8;
+  --accent2:#81e2d7;
+  --accent3:#79aef5;
+  --soft:#193d40;
+  --nav:rgba(9,21,33,.88);
+  --shadow:0 15px 45px rgba(0,0,0,.2);
+  --shadow-hover:0 24px 55px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:100px;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Vazirmatn",Tahoma,sans-serif;
+  font-size:17px;
+  line-height:2;
+  transition:background .3s,color .3s;
+  overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.container{
+  width:min(1200px,calc(100% - 48px));
+  margin:auto;
+}
+
+/* ================= NAVIGATION ================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:var(--nav);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  font-size:17px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.brand-mark{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+  background:linear-gradient(140deg,var(--accent),#174f72);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:23px;
+  box-shadow:0 7px 20px #087f8c35;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:27px;
+  color:var(--muted);
+  font-size:15px;
+  font-weight:700;
+}
+
+.nav-links a{
+  position:relative;
+  transition:.25s;
+}
+
+.nav-links a:after{
+  content:"";
+  position:absolute;
+  bottom:-9px;
+  right:0;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:.25s;
+}
+
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover:after{width:100%}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.icon-btn,.menu-btn{
+  width:45px;
+  height:45px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  font-size:21px;
+  transition:.25s;
+}
+
+.icon-btn:hover,.menu-btn:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+  transform:translateY(-2px);
+}
+
+.menu-btn{display:none}
+
+/* ================= HERO ================= */
+
+.hero{
+  padding:110px 0 100px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  border-radius:50%;
+  background:radial-gradient(circle,var(--soft),transparent 70%);
+  top:-280px;
+  left:-190px;
+  pointer-events:none;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  background:radial-gradient(circle,#3a8cbd12,transparent 70%);
+  bottom:-180px;
+  right:-130px;
+  pointer-events:none;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  align-items:center;
+  gap:85px;
+  position:relative;
+  z-index:1;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 19px;
+  border-radius:40px;
+  background:var(--soft);
+  color:var(--accent);
+  font-size:15px;
+  font-weight:800;
+  border:1px solid color-mix(in srgb,var(--accent) 15%,transparent);
+}
+
+.pulse{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--accent2);
+  box-shadow:0 0 0 6px color-mix(in srgb,var(--accent2) 17%,transparent);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 5px color-mix(in srgb,var(--accent2) 15%,transparent)}
+  50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--accent2) 0%,transparent)}
+}
+
+h1{
+  font-size:clamp(43px,5.5vw,70px);
+  line-height:1.45;
+  letter-spacing:-2px;
+  margin:25px 0 10px;
+  font-weight:900;
+}
+
+h1 span{
+  background:linear-gradient(100deg,var(--accent),var(--accent3));
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-en{
+  direction:ltr;
+  text-align:right;
+  color:var(--muted);
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.hero-desc{
+  font-size:19px;
+  color:var(--muted);
+  max-width:680px;
+  margin:28px 0 34px;
+  line-height:2.3;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+.btn{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px 25px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  font-size:16px;
+  font-weight:800;
+  transition:.25s;
+  cursor:pointer;
+}
+
+.btn-primary{
+  background:linear-gradient(120deg,var(--accent),#126b86);
+  border-color:transparent;
+  color:white;
+  box-shadow:0 10px 25px color-mix(in srgb,var(--accent) 25%,transparent);
+}
+
+.btn-primary:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 32px color-mix(in srgb,var(--accent) 35%,transparent);
+}
+
+.btn-ghost{
+  background:var(--surface);
+  color:var(--text);
+}
+
+.btn-ghost:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+  transform:translateY(-3px);
+}
+
+.hero-meta{
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  margin-top:40px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.hero-meta span{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.hero-meta b{
+  color:var(--text);
+  font-size:19px;
+}
+
+.portrait-wrap{
+  justify-self:center;
+  position:relative;
+  width:min(370px,100%);
+  animation:portraitFloat 6s ease-in-out infinite;
+}
+
+@keyframes portraitFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+.portrait-ring{
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:42px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+  position:relative;
+}
+
+.portrait-ring:before{
+  content:"";
+  position:absolute;
+  inset:-9px;
+  border:1px dashed color-mix(in srgb,var(--accent) 35%,transparent);
+  border-radius:49px;
+  animation:rotate 35s linear infinite;
+}
+
+@keyframes rotate{to{transform:rotate(360deg)}}
+
+.portrait{
+  width:100%;
+  aspect-ratio:1/1.12;
+  object-fit:cover;
+  object-position:center 38%;
+  border-radius:32px;
+  display:block;
+}
+
+.floating-card{
+  position:absolute;
+  bottom:28px;
+  right:-45px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  padding:15px 19px;
+  border-radius:19px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.floating-icon{
+  width:47px;
+  height:47px;
+  border-radius:15px;
+  background:var(--soft);
+  color:var(--accent);
+  display:grid;
+  place-items:center;
+  font-size:24px;
+}
+
+.floating-card strong{
+  display:block;
+  font-size:15px;
+  direction:ltr;
+}
+
+.floating-card small{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* ================= GENERAL SECTIONS ================= */
+
+section{padding:95px 0}
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:38px;
+}
+
+.section-kicker{
+  color:var(--accent);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  direction:ltr;
+}
+
+h2{
+  font-size:clamp(28px,3.5vw,40px);
+  margin:8px 0 0;
+  font-weight:900;
+  line-height:1.6;
+}
+
+.section-sub{
+  color:var(--muted);
+  font-size:16px;
+  margin:10px 0 0;
+  max-width:700px;
+  line-height:2;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:25px;
+}
+
+.panel,.focus-card,.repo-card,.approach-card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.about-copy{padding:35px}
+
+.about-copy p{
+  margin:0 0 20px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:2.35;
+}
+
+.about-copy p:last-child{margin-bottom:0}
+
+.about-copy b{color:var(--accent)}
+
+.facts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  padding:23px;
+}
+
+.fact{
+  background:var(--surface2);
+  border-radius:19px;
+  padding:22px;
+  transition:.25s;
+  border:1px solid transparent;
+}
+
+.fact:hover{
+  transform:translateY(-5px);
+  border-color:var(--accent);
+  background:var(--soft);
+}
+
+.fact-icon{
+  color:var(--accent);
+  font-size:27px;
+}
+
+.fact strong{
+  display:block;
+  font-size:16px;
+  margin:10px 0 4px;
+}
+
+.fact span{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* ================= FOCUS ================= */
+
+.focus-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:21px;
+}
+
+.focus-card{
+  padding:30px;
+  box-shadow:none;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.focus-card:before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  height:4px;
+  width:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent3));
+  transition:.35s;
+}
+
+.focus-card:hover:before{width:100%}
+
+.focus-card:hover,.repo-card:hover{
+  transform:translateY(-7px);
+  border-color:color-mix(in srgb,var(--accent) 55%,var(--line));
+  box-shadow:var(--shadow-hover);
+}
+
+.focus-top{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:18px;
+}
+
+.focus-icon{
+  width:58px;
+  height:58px;
+  flex-shrink:0;
+  border-radius:18px;
+  background:var(--soft);
+  display:grid;
+  place-items:center;
+  font-size:27px;
+}
+
+.focus-card h3{
+  font-size:19px;
+  margin:0;
+  font-weight:800;
+}
+
+.focus-card .en{
+  font-size:14px;
+  color:var(--muted);
+  direction:ltr;
+  text-align:right;
+  font-weight:600;
+}
+
+.focus-card p{
+  font-size:16px;
+  color:var(--muted);
+  margin:0 0 20px;
+  line-height:2.1;
+}
+
+.tag-list{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.tag{
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:30px;
+  background:var(--surface2);
+  color:var(--muted);
+  border:1px solid var(--line);
+}
+
+/* ================= TECHNOLOGY ================= */
+
+.tech-wrap{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+}
+
+.tech-group{
+  padding:25px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:21px;
+  transition:.25s;
+}
+
+.tech-group:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+  border-color:var(--accent);
+}
+
+.tech-group h3{
+  font-size:17px;
+  margin:0 0 19px;
+  font-weight:800;
+}
+
+.tech-items{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.tech-items span{
+  font-size:13px;
+  border:1px solid var(--line);
+  padding:7px 12px;
+  border-radius:11px;
+  color:var(--muted);
+  background:var(--surface2);
+  transition:.2s;
+}
+
+.tech-items span:hover{
+  background:var(--soft);
+  color:var(--accent);
+  border-color:var(--accent);
+}
+
+.tech-note{
+  font-size:14px;
+  color:var(--muted);
+  margin-top:20px;
+}
+
+/* ================= PROJECTS ================= */
+
+.repo-toolbar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.repo-count{
+  font-size:13px;
+  color:var(--accent);
+  background:var(--soft);
+  padding:9px 15px;
+  border-radius:30px;
+  font-weight:800;
+}
+
+.repo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:19px;
+}
+
+.repo-card{
+  padding:26px;
+  box-shadow:none;
+  display:flex;
+  flex-direction:column;
+  min-height:240px;
+  transition:.3s;
+}
+
+.repo-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.repo-name{
+  font-size:17px;
+  font-weight:900;
+  direction:ltr;
+  text-align:left;
+  overflow-wrap:anywhere;
+}
+
+.repo-visibility{
+  font-size:11px;
+  color:var(--muted);
+  border:1px solid var(--line);
+  padding:4px 10px;
+  border-radius:20px;
+}
+
+.repo-card p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:2;
+  margin:17px 0 22px;
+  flex:1;
+}
+
+.repo-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:9px;
+  color:var(--muted);
+  font-size:12px;
+  flex-wrap:wrap;
+}
+
+.repo-lang{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.lang-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+.repo-link{
+  color:var(--accent);
+  font-weight:800;
+}
+
+.loading{
+  grid-column:1/-1;
+  padding:45px;
+  text-align:center;
+  color:var(--muted);
+  background:var(--surface);
+  border:1px dashed var(--line);
+  border-radius:20px;
+  font-size:15px;
+}
+
+/* ================= APPROACH ================= */
+
+.approach{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+.approach-card{
+  padding:32px;
+}
+
+.approach-card h3{
+  font-size:19px;
+  margin:0 0 17px;
+  font-weight:900;
+}
+
+.approach-card ul{
+  padding:0 23px 0 0;
+  margin:0;
+  color:var(--muted);
+  font-size:16px;
+}
+
+.approach-card li{padding:6px 0}
+
+.approach-card li::marker{color:var(--accent)}
+
+.disclaimer{
+  margin-top:20px;
+  padding:19px 23px;
+  border-radius:17px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:14px;
+  line-height:2.1;
+  border:1px solid color-mix(in srgb,var(--accent) 15%,transparent);
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+  background:linear-gradient(125deg,#102d43,#087f8c 65%,#126d88);
+  color:#fff;
+  border-radius:32px;
+  padding:55px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 25px 55px rgba(8,127,140,.2);
+}
+
+.contact:before{
+  content:"";
+  position:absolute;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  border:1px solid #ffffff22;
+  left:-90px;
+  top:-180px;
+}
+
+.contact:after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  border:1px solid #ffffff15;
+  left:100px;
+  bottom:-170px;
+}
+
+.contact h2{
+  margin:0;
+  color:#fff;
+  font-size:32px;
+}
+
+.contact p{
+  color:#d2e8e8;
+  font-size:16px;
+  margin:12px 0 0;
+}
+
+.contact .btn{
+  background:white;
+  color:#075c67;
+  border-color:white;
+  position:relative;
+  z-index:1;
+  white-space:nowrap;
+}
+
+.contact .btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px #0002;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  padding:38px 0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.socials{
+  display:flex;
+  gap:22px;
+  direction:ltr;
+  font-weight:700;
+}
+
+.socials a:hover{color:var(--accent)}
+
+/* ================= ANIMATION ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:1000px){
+  .hero-grid{gap:45px}
+  .nav-links{gap:15px;font-size:13px}
+  .repo-grid{grid-template-columns:repeat(2,1fr)}
+  .tech-wrap{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:760px){
+  .container{width:min(100% - 32px,600px)}
+
+  .nav{height:72px}
+  .brand{font-size:15px}
+  .brand-mark{width:41px;height:41px}
+
+  .menu-btn{display:grid}
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:72px;
+    right:16px;
+    left:16px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:17px;
+    box-shadow:var(--shadow);
+    flex-direction:column;
+    align-items:stretch;
+    gap:5px;
+  }
+
+  .nav-links.open{display:flex}
+  .nav-links a{padding:9px 12px;font-size:15px}
+
+  .hero{padding:65px 0 55px}
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+    text-align:center;
+  }
+
+  .hero-copy{order:2}
+  .portrait-wrap{order:1;width:245px}
+
+  h1{font-size:43px}
+  .hero-en{text-align:center;font-size:15px}
+
+  .hero-desc{
+    font-size:17px;
+    margin:20px auto 25px;
+  }
+
+  .hero-buttons,.hero-meta{justify-content:center}
+  .hero-meta{gap:15px;font-size:12px}
+  .hero-meta b{font-size:16px}
+
+  .floating-card{
+    right:-20px;
+    bottom:12px;
+    padding:11px 14px;
+  }
+
+  section{padding:65px 0}
+
+  .section-head{
+    align-items:start;
+    flex-direction:column;
+    margin-bottom:27px;
+  }
+
+  h2{font-size:28px}
+  .section-sub{font-size:15px}
+
+  .about-grid,.approach{grid-template-columns:1fr}
+  .focus-grid{grid-template-columns:1fr}
+  .repo-grid{grid-template-columns:1fr}
+
+  .contact{
+    padding:35px 27px;
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .contact h2{font-size:27px}
+  .contact p{font-size:15px}
+  .contact .btn{white-space:normal}
+}
+
+@media(max-width:480px){
+  body{font-size:16px}
+  .tech-wrap{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr;padding:14px}
+  .fact{padding:15px}
+  .fact strong{font-size:14px}
+  .fact span{font-size:12px}
+  .about-copy{padding:24px}
+  .about-copy p{font-size:16px}
+  .focus-card{padding:23px}
+  .focus-card h3{font-size:17px}
+  .repo-card{padding:23px}
+  .hero-meta{gap:12px}
+  .btn{font-size:14px;padding:12px 18px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{
+    animation:none!important;
+    transition:none!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
+
 <body>
 
-<div class="jumbotron text-center">
-  <h1>Dr H Saadat</h1>
-  <p>Resize this responsive page to see the effect!</p> 
-</div>
-  
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="brand-mark">هـ</span>
+      <span>دکتر هوشنگ سعادت</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">درباره من</a>
+      <a href="#focus">حوزه‌های فعالیت</a>
+      <a href="#technology">فناوری‌ها</a>
+      <a href="#projects">پروژه‌ها</a>
+      <a href="#contact">ارتباط</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="تغییر تم">
+        <span id="themeIcon">☾</span>
+      </button>
+      <button class="menu-btn" id="menuToggle" aria-label="باز کردن منو">☰</button>
     </div>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-copy">
+      <div class="eyebrow">
+        <span class="pulse"></span>
+        پزشکی در پیوند با فناوری
+      </div>
+
+      <h1>دکتر <span>هوشنگ سعادت</span></h1>
+
+      <div class="hero-en">
+        Physician | Medical AI | Software Development
+      </div>
+
+      <p class="hero-desc">
+        متخصص بیماری‌های داخلی با ۲۰ سال سابقه طبابت؛ علاقه‌مند به طراحی سیستم‌های تصمیم‌یار بالینی، کاربرد هوش مصنوعی در پزشکی و توسعه نرم‌افزارهایی که مسائل واقعی محیط درمان را به راهکارهای دیجیتال کاربردی تبدیل می‌کنند.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#projects">
+          مشاهده پروژه‌ها <span>←</span>
+        </a>
+
+        <a class="btn btn-ghost" href="https://github.com/saadath" target="_blank" rel="noopener">
+          گیت‌هاب من ↗
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <span>🩺 <b>۲۰+</b> سال تجربه بالینی</span>
+        <span>🧠 Clinical Decision Support</span>
+        <span>💻 Software & Automation</span>
+      </div>
+    </div>
+
+    <div class="portrait-wrap">
+      <div class="portrait-ring">
+        <img class="portrait" src="hs.jpg" alt="تصویر پروفایل دکتر هوشنگ سعادت">
+      </div>
+
+      <div class="floating-card">
+        <span class="floating-icon">⚕</span>
+        <span>
+          <strong>Internal Medicine</strong>
+          <small>Clinical practice & digital health</small>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">ABOUT</div>
+        <h2>پزشکی، تجربه بالینی و مهندسی نرم‌افزار</h2>
+        <p class="section-sub">
+          Bridging clinical medicine and software engineering to build practical tools for healthcare.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="panel about-copy">
+        <p>
+          من متخصص بیماری‌های داخلی با ۲۰ سال سابقه طبابت هستم. تجربه روزمره در محیط درمان، علاقه‌ام به فناوری و توسعه نرم‌افزار را به سمت ساخت ابزارهایی هدایت کرده است که واقعاً به نیازهای پزشکان و کادر درمان پاسخ دهند.
+        </p>
+
+        <p>
+          تمرکز اصلی من توسعه <b>Clinical Decision Support Systems (CDSS)</b> است؛ ابزارهایی برای کمک به تحلیل اطلاعات بالینی، بررسی تشخیص‌های افتراقی، ارزیابی شدت بیماری و به‌کارگیری راهنماهای مبتنی بر شواهد.
+        </p>
+
+        <p>
+          در کنار پزشکی، روی اپلیکیشن‌های وب و دسکتاپ، ابزارهای پزشکی، گردش‌کارهای مبتنی بر هوش مصنوعی و اتوماسیون فرایندهای کسب‌وکار و اداری کار می‌کنم.
+        </p>
+      </div>
+
+      <div class="panel facts">
+        <div class="fact">
+          <div class="fact-icon">🩺</div>
+          <strong>پزشکی داخلی</strong>
+          <span>۲۰ سال تجربه بالینی</span>
+        </div>
+
+        <div class="fact">
+          <div class="fact-icon">🧠</div>
+          <strong>هوش مصنوعی پزشکی</strong>
+          <span>مستندسازی و گردش کار هوشمند</span>
+        </div>
+
+        <div class="fact">
+          <div class="fact-icon">⚕️</div>
+          <strong>تصمیم‌یار بالینی</strong>
+          <span>ابزارهای مبتنی بر شواهد</span>
+        </div>
+
+        <div class="fact">
+          <div class="fact-icon">⌘</div>
+          <strong>توسعه نرم‌افزار</strong>
+          <span>وب، دسکتاپ و اندروید</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">AREAS OF FOCUS</div>
+        <h2>حوزه‌های فعالیت و علاقه‌مندی</h2>
+        <p class="section-sub">از مسئله بالینی تا طراحی و پیاده‌سازی راهکار نرم‌افزاری.</p>
+      </div>
+    </div>
+
+    <div class="focus-grid">
+
+      <article class="focus-card">
+        <div class="focus-top">
+          <div class="focus-icon">⚕️</div>
+          <div>
+            <h3>سیستم‌های تصمیم‌یار بالینی</h3>
+            <div class="en">Clinical Decision Support Systems</div>
+          </div>
+        </div>
+        <p>طراحی ابزارهای تعاملی برای ساختارمند کردن ارزیابی بالینی و پشتیبانی از تصمیم‌گیری پزشک.</p>
+        <div class="tag-list">
+          <span class="tag">Diagnostic reasoning</span>
+          <span class="tag">Risk assessment</span>
+          <span class="tag">Clinical algorithms</span>
+          <span class="tag">Medical calculators</span>
+        </div>
+      </article>
+
+      <article class="focus-card">
+        <div class="focus-top">
+          <div class="focus-icon">🧠</div>
+          <div>
+            <h3>هوش مصنوعی در پزشکی</h3>
+            <div class="en">Medical Artificial Intelligence</div>
+          </div>
+        </div>
+        <p>بررسی کاربردهای عملی هوش مصنوعی برای کاهش بار مستندسازی و بهبود گردش کار بالینی.</p>
+        <div class="tag-list">
+          <span class="tag">AI documentation</span>
+          <span class="tag">Clinical summarization</span>
+          <span class="tag">Medical workflows</span>
+        </div>
+      </article>
+
+      <article class="focus-card">
+        <div class="focus-top">
+          <div class="focus-icon">💻</div>
+          <div>
+            <h3>توسعه نرم‌افزار</h3>
+            <div class="en">Software Development</div>
+          </div>
+        </div>
+        <p>ساخت برنامه‌های کاربردی با رابط کاربری روشن، ساده و متناسب با نیاز کاربران.</p>
+        <div class="tag-list">
+          <span class="tag">Web applications</span>
+          <span class="tag">Python desktop apps</span>
+          <span class="tag">Android</span>
+          <span class="tag">API integration</span>
+        </div>
+      </article>
+
+      <article class="focus-card">
+        <div class="focus-top">
+          <div class="focus-icon">⚙️</div>
+          <div>
+            <h3>اتوماسیون کسب‌وکار و اداری</h3>
+            <div class="en">Business & Administrative Automation</div>
+          </div>
+        </div>
+        <p>توسعه ابزارهایی برای بهینه‌سازی فرایندها، افزایش بهره‌وری و ساده‌سازی عملیات تکراری.</p>
+        <div class="tag-list">
+          <span class="tag">Workflow automation</span>
+          <span class="tag">Data processing</span>
+          <span class="tag">Digital tools</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="technology">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">TECHNOLOGIES</div>
+        <h2>فناوری‌ها و ابزارها</h2>
+        <p class="section-sub">ابزارهایی که در پروژه‌ها با آن‌ها کار می‌کنم یا در حال توسعه مهارت در آن‌ها هستم.</p>
+      </div>
+    </div>
+
+    <div class="tech-wrap">
+
+      <div class="tech-group">
+        <h3>زبان‌ها و وب</h3>
+        <div class="tech-items">
+          <span>Python</span><span>JavaScript</span>
+          <span>HTML</span><span>CSS</span>
+          <span>PHP</span><span>SQL</span>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <h3>توسعه اپلیکیشن</h3>
+        <div class="tech-items">
+          <span>Kotlin</span><span>Android</span><span>PySide6</span>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <h3>داده و Backend</h3>
+        <div class="tech-items">
+          <span>MySQL</span><span>REST APIs</span><span>JSON</span>
+        </div>
+      </div>
+
+      <div class="tech-group">
+        <h3>ابزارهای توسعه</h3>
+        <div class="tech-items">
+          <span>Git</span><span>GitHub</span>
+          <span>GitHub Desktop</span><span>Android Studio</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="tech-note">
+      این فهرست نشان‌دهنده فناوری‌هایی است که در پروژه‌ها استفاده می‌کنم یا در حال یادگیری و بررسی آن‌ها هستم و به معنای تسلط یکسان بر همه آن‌ها نیست.
+    </p>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">SELECTED WORK · GITHUB</div>
+        <h2>پروژه‌های من</h2>
+        <p class="section-sub">مخزن‌های عمومی گیت‌هاب؛ برای مشاهده کد، مستندات و جزئیات هر پروژه وارد مخزن شوید.</p>
+      </div>
+
+      <div class="repo-toolbar">
+        <span class="repo-count" id="repoCount">در حال دریافت پروژه‌ها…</span>
+        <a class="btn btn-ghost" href="https://github.com/saadath?tab=repositories" target="_blank" rel="noopener">
+          همه مخزن‌ها ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="repo-grid" id="repoGrid">
+      <div class="loading">در حال دریافت فهرست مخزن‌های عمومی از GitHub…</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="approach">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">MY APPROACH</div>
+        <h2>اصول من در توسعه ابزارهای پزشکی</h2>
+        <p class="section-sub">نرم‌افزار پزشکی مفید باید قابل اعتماد، شفاف و متناسب با واقعیت محیط درمان باشد.</p>
+      </div>
+    </div>
+
+    <div class="approach">
+
+      <div class="approach-card">
+        <h3>اصول طراحی و توسعه</h3>
+        <ul>
+          <li>ارتباط مستقیم با نیازهای واقعی بالینی</li>
+          <li>اتکا به شواهد علمی و راهنماهای معتبر</li>
+          <li>منطق تصمیم‌گیری و محاسبات شفاف</li>
+          <li>رابط کاربری ساده و قابل استفاده</li>
+          <li>کدنویسی قابل نگهداری و مستندسازی مناسب</li>
+        </ul>
+      </div>
+
+      <div class="approach-card">
+        <h3>ایمنی و مسئولیت حرفه‌ای</h3>
+        <ul>
+          <li>توجه به حریم خصوصی و امنیت اطلاعات</li>
+          <li>اعتبارسنجی ابزارها پیش از استفاده بالینی</li>
+          <li>توجه به شرایط و ویژگی‌های هر بیمار</li>
+          <li>به‌روزرسانی بر اساس شواهد و راهنماهای جدید</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="disclaimer">
+      ابزارهای بالینی با هدف پشتیبانی از قضاوت حرفه‌ای طراحی می‌شوند و جایگزین تصمیم پزشک نیستند. توصیه‌های پزشکی باید با شواهد روز، راهنماهای معتبر و شرایط اختصاصی هر بیمار تطبیق داده شوند.
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <div>
+        <h2>برای همکاری و تبادل ایده آماده‌ام</h2>
+        <p>به‌ویژه در زمینه سلامت دیجیتال، هوش مصنوعی پزشکی و توسعه ابزارهای تصمیم‌یار بالینی.</p>
+      </div>
+
+      <a class="btn" href="https://github.com/saadath" target="_blank" rel="noopener">
+        ارتباط از طریق GitHub ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> دکتر هوشنگ سعادت · طراحی و توسعه با علاقه به پزشکی و فناوری</span>
+
+    <div class="socials">
+      <a href="https://github.com/saadath" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://sodian.ir" target="_blank" rel="noopener">Website</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================= THEME ================= */
+
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+
+const savedTheme = localStorage.getItem('portfolio-theme');
+
+if(savedTheme === 'dark'){
+  root.dataset.theme = 'dark';
+}
+
+function updateThemeIcon(){
+  themeIcon.textContent =
+    root.dataset.theme === 'dark' ? '☀' : '☾';
+}
+
+updateThemeIcon();
+
+themeToggle.addEventListener('click',()=>{
+  root.dataset.theme =
+    root.dataset.theme === 'dark' ? 'light' : 'dark';
+
+  localStorage.setItem('portfolio-theme',root.dataset.theme);
+  updateThemeIcon();
+});
+
+/* ================= MOBILE MENU ================= */
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click',()=>{
+  navLinks.classList.toggle('open');
+  menuToggle.textContent =
+    navLinks.classList.contains('open') ? '✕' : '☰';
+});
+
+document.querySelectorAll('#navLinks a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    navLinks.classList.remove('open');
+    menuToggle.textContent='☰';
+  });
+});
+
+/* ================= YEAR ================= */
+
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+
+/* ================= GITHUB PROJECTS ================= */
+
+const pinnedOrder = [
+  'folder2json',
+  'mycalc',
+  'saadath',
+  'saadath.github.io'
+];
+
+const grid = document.getElementById('repoGrid');
+const count = document.getElementById('repoCount');
+
+const fallback = [
+  {
+    name:'folder2json',
+    description:'Folder to JSON Android App',
+    language:'Kotlin',
+    html_url:'https://github.com/saadath/folder2json',
+    stargazers_count:0,
+    fork:false
+  },
+  {
+    name:'mycalc',
+    description:'A calculator project.',
+    language:'',
+    html_url:'https://github.com/saadath/mycalc',
+    stargazers_count:0,
+    fork:false
+  },
+  {
+    name:'saadath',
+    description:'GitHub profile and professional portfolio information.',
+    language:'',
+    html_url:'https://github.com/saadath/saadath',
+    stargazers_count:0,
+    fork:false
+  },
+  {
+    name:'saadath.github.io',
+    description:'Personal website repository.',
+    language:'HTML',
+    html_url:'https://github.com/saadath/saadath.github.io',
+    stargazers_count:0,
+    fork:false
+  }
+];
+
+function escapeHTML(s=''){
+  return String(s).replace(/[&<>"']/g,c=>({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[c]));
+}
+
+function renderRepos(repos){
+
+  const byName = new Map(
+    repos.map(r=>[r.name.toLowerCase(),r])
+  );
+
+  const ordered = [];
+
+  pinnedOrder.forEach(n=>{
+    const r=byName.get(n.toLowerCase());
+    if(r) ordered.push(r);
+  });
+
+  repos
+    .filter(r=>!pinnedOrder.includes(r.name))
+    .forEach(r=>ordered.push(r));
+
+  const visible=ordered.slice(0,9);
+
+  count.textContent=`${repos.length} مخزن عمومی`;
+
+  grid.innerHTML=visible.map(r=>`
+    <article class="repo-card">
+
+      <div class="repo-head">
+        <a class="repo-name"
+           href="${escapeHTML(r.html_url)}"
+           target="_blank"
+           rel="noopener">
+           ${escapeHTML(r.name)}
+        </a>
+
+        <span class="repo-visibility">PUBLIC</span>
+      </div>
+
+      <p>
+        ${escapeHTML(
+          r.description ||
+          'برای مشاهده توضیحات و جزئیات این پروژه، مخزن گیت‌هاب را باز کنید.'
+        )}
+      </p>
+
+      <div class="repo-foot">
+
+        <span class="repo-lang">
+          ${
+            r.language
+            ? '<i class="lang-dot"></i>'+escapeHTML(r.language)
+            : 'GitHub Repository'
+          }
+        </span>
+
+        <span>★ ${Number(r.stargazers_count)||0}</span>
+
+        <a class="repo-link"
+           href="${escapeHTML(r.html_url)}"
+           target="_blank"
+           rel="noopener">
+           مشاهده ↗
+        </a>
+
+      </div>
+
+    </article>
+  `).join('');
+
+}
+
+/* GitHub API */
+
+fetch('https://api.github.com/users/saadath/repos?per_page=100&sort=updated')
+
+  .then(res=>{
+    if(!res.ok) throw new Error('GitHub API unavailable');
+    return res.json();
+  })
+
+  .then(data=>{
+    renderRepos(
+      data.filter(r=>!r.fork && !r.archived)
+    );
+  })
+
+  .catch(()=>{
+    renderRepos(fallback);
+    count.textContent='مخزن‌های منتخب';
+  });
+
+/* ================= SCROLL REVEAL ================= */
+
+const revealElements = document.querySelectorAll(
+  '.section-head,.panel,.focus-card,.tech-group,.repo-card,.approach-card,.disclaimer,.contact'
+);
+
+if('IntersectionObserver' in window){
+
+  const observer = new IntersectionObserver(entries=>{
+
+    entries.forEach(entry=>{
+
+      if(entry.isIntersecting){
+
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  },{
+    threshold:0.08
+  });
+
+  revealElements.forEach(el=>{
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+
+}else{
+  revealElements.forEach(el=>el.classList.add('visible'));
+}
+
+</script>
+
+</body>
+</html>
